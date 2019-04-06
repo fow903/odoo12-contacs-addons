@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_form_partner_extra_fields_inherited" model="ir.ui.view">
+            <field name="name">Partner Extra Fields Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="phone" position="after">
+                    <field name="ext"/>
+                </field>
+                <field name="website" position="after">
+                    <field name="catchment_id" options="{'no_create': True}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+    <act_window id="action_catchment_method"
+                    name="Catchment Method"
+                    res_model="catchment.method"
+                    view_mode="tree,form"/>
+
+    <menuitem id="menu_catchment_method"
+                  name="Catchment Method"
+                  parent="base.menu_sale_config"
+                  sequence="30"
+                  action="action_catchment_method"/>
+</openerp>
